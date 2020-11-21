@@ -11,36 +11,7 @@ import json
 
 client = commands.Bot(command_prefix = '$bork ')
 
-TOKEN = 'NzYzNzkxODY0ODY4MjQxNDY5.X382mw.0TC-rnyhwSSaYm7IUUa7KhKtU1g'
-df = pd.read_csv('users.csv') 
-ALL_MEMBERS = []
-for i,j in df.iterrows():
-    temp = [j['username'],j['email']]
-    ALL_MEMBERS.append(temp)
-print(ALL_MEMBERS)
-
-def send_mail(receiver_email,time):
-    sender_email = "find.roomy.otp@gmail.com"
-    message = MIMEMultipart("alternative")
-    message["Subject"] = "INVITE : MLSA"
-    message["From"] = 'find.roomy.otp@gmail.com'
-    message["To"] = receiver_email
-    html = ("""\
-    <html>
-        <body>
-            <b><p style='color: blue;'>Meeting Scheduled at : <p style='color:red;'>{}</p></p></b>
-        </body>
-    </html>
-    """).format(time)
-    #turinig into mime content
-    part2 = MIMEText(html, "html")
-
-    message.attach(part2)
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login(sender_email, "Sahil8139")
-        server.sendmail(sender_email, receiver_email, message.as_string())
-
+TOKEN = ''
 
 @client.event
 async def on_ready():
@@ -66,26 +37,6 @@ async def about(ctx):
 async def command(ctx):
     await ctx.send(" `hi` `ping` `about` ")
 
-@client.command()
-async def invite(ctx,args,args2):
-    users = args
-    users = users.split()
-    time = args2
-     #CSV file to read data from
-    #await ctx.send("{},{}".format(users,time))
-    #try:
-    for i in users:
-        for j in ALL_MEMBERS:
-            if i == j[0]:
-                send_mail(j[1],time)
-    await ctx.send("Imvite Sent!")
-    #except Exception as e:
-    #     await ctx.send(e)
-'''
-@client.command()
-async def testargs(ctx,*args):
-    await ctx.send("{} , Username -> {}".format(len(args),args))
-'''
 
 @client.command()
 async def doggo(ctx):
