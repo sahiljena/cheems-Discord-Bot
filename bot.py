@@ -2,6 +2,7 @@ import discord
 import requests
 from discord.ext import commands
 import json
+import os
 
 
 
