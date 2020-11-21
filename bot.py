@@ -1,17 +1,13 @@
 import discord
-import pandas as pd
-import smtplib, ssl
 import requests
 from discord.ext import commands
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart  
 import json
 
 
 
 client = commands.Bot(command_prefix = '$bork ')
 
-TOKEN = ''
+TOKEN = os.environ.get('TOKEN')
 
 @client.event
 async def on_ready():
@@ -35,7 +31,7 @@ async def about(ctx):
 
 @client.command()
 async def command(ctx):
-    await ctx.send(" `hi` `ping` `about` ")
+    await ctx.send(" `hi` `ping` `about` `doggo` `meme` ")
 
 
 @client.command()
