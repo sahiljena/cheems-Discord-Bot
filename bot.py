@@ -54,7 +54,7 @@ async def meme(ctx):
     await ctx.send(r['url'])
 
 @client.command(pass_context=True)
-async def roast(ctx, *members: discord.Member = None):
+async def roast(ctx, member: discord.Member = None):
     if members:
         f = open("roasts.txt","r")
 
@@ -62,7 +62,7 @@ async def roast(ctx, *members: discord.Member = None):
 
         reply = f''' ```diff
         - {roasts[random.randint(0,len(roasts))]}
-        ``` {' '.join([i.mention for i in members])}'''
+        ``` {member.mention}'''
         await ctx.send(reply)
     else:
         await ctx.send("Providm a valid username")
