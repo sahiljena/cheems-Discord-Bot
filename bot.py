@@ -56,6 +56,7 @@ async def meme(ctx):
 @client.command(pass_context=True)
 async def roast(ctx, member: discord.Member = None):
     if member:
+        print(member.name)
         if member.name == "sahiljena#6697":
             await ctx.send("hmm sorrym i cant roastm my hooman !!")
         else:
