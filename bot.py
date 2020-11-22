@@ -32,8 +32,8 @@ async def about(ctx):
     await ctx.send('>>> Ima bot Under development by Sahil Jena  & Open Source Community on Github https://github.com/sahiljena/cheems-Discord-Bot :sweat_drops:')
 
 @client.command()
-async def command(ctx):
-    await ctx.send(" `hi` `ping` `about` `doggo` `meme` ")
+async def commands(ctx):
+    await ctx.send(" `hi` `ping` `about` `doggo` `meme` `roast` ")
 
 
 @client.command()
