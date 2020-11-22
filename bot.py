@@ -57,7 +57,7 @@ async def meme(ctx):
 async def roast(ctx, member: discord.Member = None):
     if member:
         print(member.name)
-        if member.name == "sahiljena#6697":
+        if member.name == "sahiljena":
             await ctx.send("hmm sorrym i cant roastm my hooman !!")
         else:
             f = open("roasts.txt","r")
