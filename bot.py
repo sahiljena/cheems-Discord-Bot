@@ -60,11 +60,9 @@ async def roast(ctx, *members: discord.Member = None):
 
         roasts = f.readlines()
 
-        reply = f'''
-        ```diff
+        reply = f'''```diff
         - {roasts[random.randint(0,len(roasts))]}
-        ``` {' '.join([i.mention for i in members])}
-        '''
+        ``` {' '.join([i.mention for i in members])}'''
         await ctx.send(reply)
     else:
         await ctx.send("Providm a valid username")
