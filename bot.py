@@ -53,7 +53,7 @@ async def meme(ctx):
     r = json.loads(r.text)
     await ctx.send(r['url'])
 
-@client.command()
+@client.command(pass_context=True)
 async def roast(ctx, *members: discord.Member = None):
     if members:
         f = open("roasts.txt","r")
