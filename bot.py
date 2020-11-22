@@ -55,7 +55,7 @@ async def meme(ctx):
 
 @client.command(pass_context=True)
 async def roast(ctx, member: discord.Member = None):
-    if members:
+    if member:
         f = open("roasts.txt","r")
 
         roasts = f.readlines()
