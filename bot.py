@@ -3,6 +3,7 @@ import requests
 from discord.ext import commands
 import json
 import os
+import random
 
 
 
@@ -52,6 +53,20 @@ async def meme(ctx):
     r = json.loads(r.text)
     await ctx.send(r['url'])
 
+@client.command()
+
+async def roast(ctx):
+
+    f = open("roasts.txt","r")
+
+    roasts = f.readlines()
+
+    reply = f''' 
+        ```diff
+        - {roasts[random.randint(0,len(roasts))]}
+        ``` {' '.join([i.mention for i in members])}
+    '''
+    await ctx.send(reply)
 
 client.run(TOKEN)
 
