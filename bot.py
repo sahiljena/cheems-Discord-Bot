@@ -55,7 +55,7 @@ async def meme(ctx):
 
 @client.command()
 
-async def roast(ctx):
+async def roast(ctx, *members: discord.Member):
 
     f = open("roasts.txt","r")
 
