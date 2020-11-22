@@ -56,14 +56,17 @@ async def meme(ctx):
 @client.command(pass_context=True)
 async def roast(ctx, member: discord.Member = None):
     if member:
-        f = open("roasts.txt","r")
+        if member.name == "sahiljena#6697":
+            await ctx.send("hmm sorrym i cant roastm my hooman !!")
+        else:
+            f = open("roasts.txt","r")
 
-        roasts = f.readlines()
+            roasts = f.readlines()
 
-        reply = f'''```diff
-        - {roasts[random.randint(0,len(roasts))]}
-        ``` {member.mention}'''
-        await ctx.send(reply)
+            reply = f'''```diff
+            - {roasts[random.randint(0,len(roasts))]}
+            ``` {member.mention}'''
+            await ctx.send(reply)
     else:
         await ctx.send("Providm a valid username")
 
