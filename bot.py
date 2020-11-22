@@ -60,7 +60,7 @@ async def roast(ctx, member: discord.Member = None):
 
         roasts = f.readlines()
 
-        reply = f''' ```diff
+        reply = f'''```diff
         - {roasts[random.randint(0,len(roasts))]}
         ``` {member.mention}'''
         await ctx.send(reply)
