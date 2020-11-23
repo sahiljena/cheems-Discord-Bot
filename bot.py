@@ -94,8 +94,10 @@ async def todo(ctx,args = None,task = None):
                 st = "``` {} {} ```".format(row[0],row[1])
                 print(st)
                 todoList.append(st)
-        print(todoList)
-        await ctx.send(f""" {i for i in todoList}""")
+        for i in todoList:
+            print(i)
+        reply = f""" { i for i in todoList}"""
+        print(reply)
 
 
 
