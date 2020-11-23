@@ -110,7 +110,7 @@ async def todo(ctx,args = None,task = None):
             reader = csv.reader(file)
             for i in reader:
                 dataAll.append(i)
-        deletedData = dataAll[task-1][1]
+        deletedData = dataAll[int(task)-1][1]
         dataAll.pop(int(task)-1)
         with open('todo.csv', 'w') as file:
             for i in range(len(dataAll)):
