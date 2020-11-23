@@ -87,10 +87,14 @@ async def todo(ctx,args = None,task = None):
             writer.writerow([n, task])
             await ctx.send("To-do list updated")
     if args == "show":
+        todoList = []
         with open('todo.csv', 'r') as file:
             reader = csv.reader(file)
             for row in reader:
-                await ctx.send(row)
+            st = "``` {} {} ```".format(row[0],row[1])
+            todoList.append(st)
+        await ctx.send( f""" {i+"\n" for i in todoList}
+        """)
 
 
 
