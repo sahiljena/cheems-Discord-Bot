@@ -80,20 +80,18 @@ async def todo(ctx,args = None,task = None):
         n = 1
         with open('todo.csv', 'r') as file:
             reader = csv.reader(file)
-            n += len(reader)
+            for i in reader:
+                n += 1
         with open('todo.csv', 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([n, task])
             await ctx.send("To-do list updated")
     if args == "show":
-        with open('innovators.csv', 'r') as file:
+        with open('todo.csv', 'r') as file:
             reader = csv.reader(file)
             for row in reader:
                 await ctx.send(row)
 
-
-
-        
 
 
 client.run(TOKEN)
