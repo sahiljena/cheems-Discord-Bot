@@ -96,7 +96,9 @@ async def todo(ctx,args = None,task = None):
                 todoList.append(st)
         for i in todoList:
             print(i)
-        reply = f""" { i for i in todoList}"""
+        reply = ""
+        for i in todoList:
+            reply += i+" "
         print(reply)
 
 
