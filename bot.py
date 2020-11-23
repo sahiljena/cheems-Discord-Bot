@@ -82,7 +82,7 @@ async def todo(ctx,args = None,task = None):
             reader = csv.reader(file)
             for i in reader:
                 n += 1
-        with open('todo.csv', 'w', newline='') as file:
+        with open('todo.csv', 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([n, task])
             await ctx.send("To-do list updated")
