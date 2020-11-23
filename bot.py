@@ -102,7 +102,23 @@ async def todo(ctx,args = None,task = None):
         print(reply)
 
         await ctx.send(reply)
+    if args == "del":
+        #here task is int id to delete from csv file
+        dataAll = []
+        with open('todo.csv', 'r') as file:
+            reader = csv.reader(file)
+            for i in reader:
+                dataAll.append(i)
+        dataAll.pop(int(task)-1)
+        with open('todo.csv', 'w') as file:
+            for i in range(len(dataAll)):
+                writer.writerow([i+1, dataAll[i][1]])
+        await ctx.send("To-do list updated")
 
+
+
+
+        
 
 
 client.run(TOKEN)
