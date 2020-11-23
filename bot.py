@@ -4,6 +4,8 @@ from discord.ext import commands
 import json
 import os
 import random
+import csv
+
 
 
 
@@ -70,6 +72,29 @@ async def roast(ctx, member: discord.Member = None):
             await ctx.send(reply)
     else:
         await ctx.send("Providm a valid username")
+
+
+@client.command(pass_context=True)
+async def todo(ctx,args = None,task = None):
+    if args == "add":
+        n = 1
+        with open('todo.csv', 'r') as file:
+            reader = csv.reader(file)
+            n += len(reader)
+        with open('todo.csv', 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([n, task])
+            await ctx.send("To-do list updated")
+    if args == "show":
+        with open('innovators.csv', 'r') as file:
+            reader = csv.reader(file)
+            for row in reader:
+                await ctx.send(row)
+
+
+
+        
+
 
 client.run(TOKEN)
 
