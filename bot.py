@@ -93,8 +93,7 @@ async def todo(ctx,args = None,task = None):
             for row in reader:
                 st = "``` {} {} ```".format(row[0],row[1])
                 todoList.append(st)
-        await ctx.send( f""" {i+"\n" for i in todoList}
-        """)
+        await ctx.send( f""" {i+"\n" for i in todoList}""")
 
 
 
