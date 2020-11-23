@@ -92,8 +92,10 @@ async def todo(ctx,args = None,task = None):
             reader = csv.reader(file)
             for row in reader:
                 st = "``` {} {} ```".format(row[0],row[1])
+                print(st)
                 todoList.append(st)
-        await ctx.send( f""" {i for i in todoList}""")
+        print(todoList)
+        await ctx.send(f""" {i for i in todoList}""")
 
 
 
