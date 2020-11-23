@@ -101,6 +101,8 @@ async def todo(ctx,args = None,task = None):
             reply += i+" "
         print(reply)
 
+        await ctx.send(reply)
+
 
 
 client.run(TOKEN)
