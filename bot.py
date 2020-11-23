@@ -112,6 +112,7 @@ async def todo(ctx,args = None,task = None):
         dataAll.pop(int(task)-1)
         with open('todo.csv', 'w') as file:
             for i in range(len(dataAll)):
+                writer = csv.writer(file)
                 writer.writerow([i+1, dataAll[i][1]])
         await ctx.send("To-do list updated")
 
