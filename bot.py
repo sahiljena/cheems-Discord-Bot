@@ -115,6 +115,8 @@ async def todo(ctx,args = None,task = None):
                 writer = csv.writer(file)
                 writer.writerow([i+1, dataAll[i][1]])
         await ctx.send("To-do list updated")
+    if args == "backup":
+        await ctx.send(file=discord.File(r'todo.csv'))
 
 
 
