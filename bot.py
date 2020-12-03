@@ -73,6 +73,10 @@ async def roast(ctx, member: discord.Member = None):
     else:
         await ctx.send("Providm a valid username")
 
+@client.command()
+async def spamdank(ctx, args):
+    if args == "daily":
+        await ctx.send("pls daily")
 
 @client.command(pass_context=True)
 async def todo(ctx,args = None,task = None):
